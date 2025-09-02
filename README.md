@@ -1,9 +1,10 @@
 # Ripple XRPL Rust Library
 
-A Rust library for XRPL (Ripple) operations including token transfers, transaction signing, and verification.
+A **manually implemented** Rust library for XRPL (Ripple) operations including token transfers, transaction signing, and verification. This library is built from scratch without using external XRPL crates.
 
 ## Features
 
+- **Manual Implementation**: Built from scratch without external XRPL crates
 - **Token Transfers**: Send issued assets on XRPL Testnet
 - **Transaction Verification**: Verify token transfers between users
 - **Offline Signing**: Sign transactions offline without submitting
@@ -13,11 +14,31 @@ A Rust library for XRPL (Ripple) operations including token transfers, transacti
 
 ## Installation
 
-Add this to your `Cargo.toml`:
+This is a standalone Rust library that implements XRPL functionality from scratch. To use it in your project, you can either:
+
+1. **Copy the source code** into your project
+2. **Add as a local dependency** by pointing to this directory
+
+If adding as a local dependency, add this to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-ripple-xrpl = "0.1.0"
+ripple-xrpl = { path = "./path/to/this/library" }
+```
+
+Or if you want to copy the source code directly, add these dependencies to your `Cargo.toml`:
+
+```toml
+[dependencies]
+tokio = { version = "1.0", features = ["full"] }
+reqwest = { version = "0.11", features = ["json"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+hex = "0.4"
+ed25519-dalek = "2.0"
+sha2 = "0.10"
+anyhow = "1.0"
+thiserror = "1.0"
 ```
 
 ## Usage
